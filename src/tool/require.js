@@ -1,6 +1,6 @@
 import axios from 'axios'
 const instance = axios.create({
-  baseURL: 'https://mhd.zhuishushenqi.com',
+  baseURL: 'https://mhd.zhuishushenqi.com/',
   timeout: 5000
 })
 instance.interceptors.request.use(function (config) {
