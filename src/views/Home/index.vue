@@ -18,13 +18,14 @@
       <!-- nav end -->
 
       <!-- recommend top -->
-        <index-section v-for="item in recommendList" :key='item.specialid' :info = 'item'></index-section>
+        <index-section v-for="item in recommendList" :key='item.specialid' :info="item"></index-section>
       <!-- recommend end -->
     </div>
   </div>
 </template>
 
 <script>
+// 图片懒加载
 import { Swiper, Swiperitem } from '@/components/Swiper'
 import { bannerApi, recommendApi } from '@/api/home.js'
 // home首页专用的组件
@@ -41,27 +42,13 @@ export default {
     bannerApi () {
       bannerApi()
         .then((response) => {
-          if (response.code === 200) {
-            this.bannerImgList = response.info
-          } else {
-            console.log(response.code_msg)
-          }
-        })
-        .catch(function (error) {
-          console.log(error)
+          this.bannerImgList = response.info
         })
     },
     recommendApi () {
       recommendApi()
         .then((response) => {
-          if (response.code === 200) {
-            this.recommendList = response.info
-          } else {
-            console.log(response.code_msg)
-          }
-        })
-        .catch(function (error) {
-          console.log(error)
+          this.recommendList = response.info
         })
     }
   },

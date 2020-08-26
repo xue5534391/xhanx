@@ -11,7 +11,7 @@
     <!-- recommend-type-1 -->
     <div v-if="info.comicsviewtype === 1" class="recommend-type-1">
       <div class="item" v-for="childrenItem in info.comicslist" :key="childrenItem.bigbook_id">
-        <img class="item-pic" :src="JSON.parse(childrenItem.extension).xsyzfx" />
+        <img class="item-pic" v-lazy="JSON.parse(childrenItem.extension).xsyzfx" />
         <p class="item-name font-28">{{childrenItem.bigbook_name}}</p>
         <p class="item-text font-24">{{JSON.parse(childrenItem.extension).recommendwords}}</p>
       </div>
@@ -19,7 +19,7 @@
     <!-- recommend-type-5 -->
     <div v-if="info.comicsviewtype === 5" class="recommend-type-5">
       <div class="item" v-for="childrenItem in info.comicslist" :key="childrenItem.bigbook_id">
-        <img class="item-pic" :src="childrenItem.coverurl" />
+        <img class="item-pic" v-lazy="childrenItem.coverurl" />
         <p class="item-name font-28">{{childrenItem.bigbook_name}}</p>
         <p class="item-text font-24">{{childrenItem.key_name}}</p>
       </div>
@@ -33,7 +33,7 @@
       >
         <img
           class="item-pic"
-          :src="childrenItem.extension ? JSON.parse(childrenItem.extension).scfk344_202 : null "
+          v-lazy="childrenItem.extension ? JSON.parse(childrenItem.extension).scfk344_202 : null "
         />
         <div class="ranking-group">
           <div class="item-ranking" :class="`item-ranking-${itemIndex + 1}`"></div>

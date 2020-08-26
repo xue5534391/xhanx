@@ -296,3 +296,7 @@
         white-space: nowrap
     }
 }
+
+@mixin border-Bottom {
+    border-bottom: 1px solid #ededed;
+}
